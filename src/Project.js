@@ -1,6 +1,7 @@
 'use strict';
 
 const Timeline = require('./Timeline.js');
+const Events = require('./Events.js');
 
 /**
  * 
@@ -46,7 +47,7 @@ class Project {
      * @memberOf Project
      */
     addRegion(time, descriptor) {
-        this.timeline.addEvent('region', time, descriptor);
+        this.timeline.addEvent(Events.REGION, time, descriptor);
 
         return this;
     }
@@ -61,7 +62,7 @@ class Project {
      * @memberOf Project
      */
     addSilence(time) {
-        this.timeline.addEvent('silence', time);
+        this.timeline.addEvent(Events.SILENCE, time);
 
         return this;
     }
@@ -70,14 +71,14 @@ class Project {
      * Add an hit event
      * 
      * @param {any} time 
-     * @param {any} descriptor 
+     * @param {any} type 
      * 
      * @returns 
      * 
      * @memberOf Project
      */
-    addHit(time, descriptor) {
-        this.timeline.addEvent('hit', time, descriptor);
+    addHit(time, type) {
+        this.timeline.addEvent(Events.HIT, time, type);
 
         return this;
     }
@@ -92,10 +93,6 @@ class Project {
     create() {
         if(this.title === '') {
             throw Error('Specify an unique project title');
-        }
-
-        if(this.timeline.events.length == 0) {
-            throw Error('Not enough events in the project timeline.');
         }
 
         if(!this.timeline.isValid()) {

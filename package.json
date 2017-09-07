@@ -25,7 +25,6 @@
   "homepage": "https://github.com/3xl/ampermusic#readme",
   "dependencies": {
     "request": "^2.81.0",
-    "request-promise": "^4.2.1",
-    "rx": "^4.1.0"
+    "request-promise": "^4.2.1"
   }
 }

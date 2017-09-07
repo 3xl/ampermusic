@@ -6,7 +6,7 @@ const rp      = require('request-promise');
 const fs      = require('fs');
 
 /**
- * Simple interface to request-promise package
+ * Simple http client
  * 
  * @class Client
  */
@@ -42,7 +42,6 @@ class Client {
     /**
      * Execute http cal
      * 
-     * @static
      * @param {String|Object} resource
      * @param {String} mthod - http verbs
      * @param {Object} _options - all the other options handled by request package
@@ -86,9 +85,9 @@ class Client {
     /**
      * Download a resource to a destination path
      * 
-     * @param {any} uri 
-     * @param {any} path 
-     * @param {any} [_options={}] 
+     * @param {String} uri 
+     * @param {String} path 
+     * @param {Object} [_options={}] 
      * 
      * @memberOf Client
      */

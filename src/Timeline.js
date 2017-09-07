@@ -1,5 +1,7 @@
 'use strict';
 
+const Events = require('./Events.js');
+
 /**
  * 
  * 
@@ -20,19 +22,27 @@ class Timeline {
     /**
      * Add an event
      * 
-     * @param {any} event 
-     * @param {any} time 
-     * @param {any} descriptor 
+     * @param {String} eventName 
+     * @param {String} time 
+     * @param {String} descriptor 
      * 
      * @memberOf Timeline
      */
-    addEvent(event, time, descriptor) {
-        this.events.push({
+    addEvent(eventName, time, descriptor) {
+        let event = {
             id: this._generateEventId(),
-            event: event,
+            event: eventName,
             time: time,
             descriptor: descriptor
-        });
+        };
+
+        if(event === Events.HIT) {
+            event.type = event.descriptor;
+
+            delete event.descriptor;
+        }
+
+        this.events.push(event);
     }
 
     /**
@@ -50,13 +60,22 @@ class Timeline {
     }
 
     /**
-     * We suggest limiting timelines to five minutes in length or less. Lengths greater than five minutes may not be supported.
+     * @todo Implement this function. 
+     * 
+     * The official documentation suggests limiting timelines to five minutes in length or less. 
+     * Lengths greater than five minutes may not be supported.
      * 
      * @returns {Boolean}
      * 
      * @memberOf Timeline
      */
     isValid() {
+        if(this.events.length == 0) {
+            return false;
+        }
+
+        if(this.events[this.events.length - 1].event !== Events.SILENCE)
+
         return true;
     }
 }
