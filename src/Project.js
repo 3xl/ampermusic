@@ -26,7 +26,9 @@ class Project {
     /**
      * Set title
      * 
-     * @param {any} title 
+     * @param {String} title 
+     * 
+     * @returns {this}
      * 
      * @memberOf Project
      */
@@ -55,9 +57,9 @@ class Project {
     /**
      * Add silence event
      * 
-     * @param {any} time 
+     * @param {Number} time 
      * 
-     * @returns 
+     * @returns {this}
      * 
      * @memberOf Project
      */
@@ -70,10 +72,10 @@ class Project {
     /**
      * Add an hit event
      * 
-     * @param {any} time 
-     * @param {any} type 
+     * @param {Number} time 
+     * @param {String} type 
      * 
-     * @returns 
+     * @returns {this} 
      * 
      * @memberOf Project
      */
