@@ -9,31 +9,40 @@ let ampermusic = new Ampermusic('apikey');
  * Get the list of descriptors
  * 
  */
-ampermusic.getDescriptors()
-    .then(descriptors => {
-        console.log(descriptors);
-    });
+// ampermusic.getDescriptors()
+//     .then(descriptors => {
+//         console.log(descriptors);
+//     });
+
+/**
+ * Get Project
+ * 
+ */
+// ampermusic.getProject('projectId')
+//     .then(project => {
+//         console.log(project);
+//     });
 
 /**
  * Create a new project
  * 
  */  
-try {
-    let project = ampermusic.createProjectInstance();
+// let project = ampermusic.createProjectInstance();
 
-    project
-        .addRegion(0, 'exciting_modern_folk')
-        .addRegion(10, 'ambient_uplifting_high')
-        .create()
-        .then(project => {
-            console.log(project);
-        });
-} catch(error) {
-    console.log('Error: ' + error.message);
-}
+// project
+//     .setTitle('Test API 2')
+//     .addRegion(0, 'exciting_modern_folk')
+//     .addRegion(10, 'ambient_uplifting_high')
+//     .create()
+//     .then(project => {
+//         console.log(project);
+//     })
+//     .catch(error => {
+//         console.log('Error: ' + error.message);
+//     });
 
 /**
  * Download video
  * 
  */
-ampermusic.download('85811', './file', 'mp3');
+// ampermusic.download('projectId', './file', 'mp3');

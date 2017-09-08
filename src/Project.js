@@ -86,17 +86,17 @@ class Project {
     /**
      * Build the data model of the project and send it to the server to be processed 
      * 
-     * @returns 
+     * @returns {Promise}
      * 
      * @memberOf Project
      */
     create() {
         if(this.title === '') {
-            throw Error('Specify an unique project title');
+            return Promise.reject(new Error('Specify an unique project title'));
         }
 
         if(!this.timeline.isValid()) {
-            throw Error('Malformed timeline.');
+            return Promise.reject(new Error('Malformed timeline.'));
         }
 
         let project = { 
