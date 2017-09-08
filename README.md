@@ -50,7 +50,7 @@ Projects are a container for system interactions. They primarily define the musi
 let project = ampermusic.createProjectInstance();
 
 project
-	// set project name
+    // set project name
     .setTitle('My project')
     
     // add region at a specific time using a descriptor from the list
